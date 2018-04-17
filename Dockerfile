@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER Fabian Stäber, fabian@fstab.de
 
-ENV LAST_UPDATE=2016-08-21
+ENV LAST_UPDATE=2018-04-17
 
 #####################################################################################
 # Current version is aws-cli/1.10.53 Python/2.7.12
@@ -9,6 +9,10 @@ ENV LAST_UPDATE=2016-08-21
 
 RUN apt-get update && \
     apt-get upgrade -y
+    
+RUN apt-get install -y \
+    locales \
+    tzdata
 
 # Set the timezone
 RUN echo "Europe/Berlin" | tee /etc/timezone && \
